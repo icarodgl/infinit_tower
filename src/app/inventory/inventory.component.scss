@@ -1,0 +1,15 @@
+._item{
+    margin: 1px;
+    width: 64px;
+    height: 64px;
+    border: 1px solid black;
+}
+.itens{
+    display: flex;
+    flex-wrap:wrap
+}
+.inventory{
+    display: flex;
+    max-width: 500px;
+    flex-direction: column;
+}

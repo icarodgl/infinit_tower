@@ -1,3 +1,18 @@
-<div>
-    <button class="btn btn-primary">atacar</button>
+<div class="menu">
+    <app-menu-tattle *ngIf="menu == menus.battle"
+    (changeMenu)="changeMenu(menus.rest)"
+    (changeMenuInventory)="changeMenu(menus.inventory)">
+    </app-menu-tattle>
+    <app-menu-rest *ngIf="menu == menus.rest"
+    (changeMenuBattle)="changeMenu(menus.battle)"
+    (changeMenuInventory)="changeMenu(menus.inventory)"
+    (changeMenuShop)="changeMenu(menus.shop)"
+    >
+    </app-menu-rest>
+    <app-inventory *ngIf="menu == menus.inventory"
+    (changeMenuRest)="changeMenu(menus.rest)">
+    </app-inventory>
+    <app-shop *ngIf="menu == menus.shop"
+    (changeMenu)="changeMenu(menus.rest)">
+    </app-shop>
 </div>

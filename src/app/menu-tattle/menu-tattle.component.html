@@ -1,0 +1,27 @@
+<div  class="row">
+    <div class="life_bar">
+        <h2>Vida do Monstro:</h2>
+        <h4 *ngFor="let coreM of monsterHP">
+            <i *ngIf="!coreM" class="bi bi-suit-heart-fill"></i>
+            <i *ngIf="coreM" class="bi bi-suit-heart"></i>
+        </h4>
+    </div>
+<div class="life_bar">
+    <h2>Sua Vida:</h2>
+    <h4 *ngFor="let coreP of personHP">
+        <i *ngIf="!coreP" class="bi bi-suit-heart-fill"></i>
+        <i *ngIf="coreP" class="bi bi-suit-heart"></i>
+    </h4>
+
+</div>
+   
+    <div class="col">
+        <button (click)="atacar()" class="btn btn-dark">atacar</button>
+        </div>
+        <div class="col">
+            <button (click)="changeMenuInventory.emit()" class="btn btn-dark">itens</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-dark">fugir</button>
+        </div>
+</div>

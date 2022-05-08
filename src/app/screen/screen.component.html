@@ -1,7 +1,11 @@
-<div class="container">
-    <div class="grid">
-        <div class="g-col-8 screen">
-            
+<div>
+<div class="screen">
+        <div class="imagens">
+            <app-sword class="arma"></app-sword>
+            <app-slime *ngIf="encounter == encounterOptions.enemy" class="inimigo"></app-slime>
+            <app-campfire *ngIf="encounter == encounterOptions.campfire" class="campfire"></app-campfire>
+            <img class="fundo" src="../../assets/caverna1.svg" alt="fundo">
         </div>
-    </div>
+</div>
+
 </div>
