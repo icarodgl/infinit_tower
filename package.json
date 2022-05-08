@@ -1,6 +1,7 @@
 {
   "name": "infinite-tower",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "homepage": "https://icarodgl.github.io/infinit_tower",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
