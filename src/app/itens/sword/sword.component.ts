@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { BattleService } from 'src/app/services/battle.service';
 
 @Component({
   selector: 'app-sword',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sword.component.scss']
 })
 export class SwordComponent implements OnInit {
-
-  constructor() { }
+  constructor( public bs:BattleService) { }
 
   ngOnInit(): void {
+  
   }
 
 }

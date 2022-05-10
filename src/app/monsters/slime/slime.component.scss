@@ -1,6 +1,5 @@
 .slime_color{
-    opacity: .5;
-    fill: rgb(11, 202, 11);
+    stroke:black
 }
 .slime_core{
     fill: red;
@@ -8,3 +7,12 @@
 .inimigo_svg{
     width: 200px;
 }
+.inimigo_encolher{
+    animation-name: encolher;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+@keyframes encolher {
+    from {height: 200px;;}
+    to {height: 10px;}
+  }

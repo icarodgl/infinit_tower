@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EncounterOptions } from '../models/encounter.model';
 import { BattleService } from '../services/battle.service';
+import { MonstersService } from '../services/monsters.service';
 
 @Component({
   selector: 'app-screen',
@@ -17,5 +18,4 @@ export class ScreenComponent implements OnInit {
   ngOnInit(): void {
     this.battleService.encounter$.subscribe(e => this.encounter = e)
   }
-
 }

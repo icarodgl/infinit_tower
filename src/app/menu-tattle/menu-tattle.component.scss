@@ -11,3 +11,13 @@ margin-right: 2px;
 .life_bar{
     display: flex;
 }
+
+.menu{
+    display: flex;
+    flex-direction: column;
+}
+.buttons{
+    width: min-content;
+    display: flex;
+    flex-direction: row;
+}

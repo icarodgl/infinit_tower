@@ -1,4 +1,4 @@
-<svg
+<svg [ngClass]="bs.monsterAnim? 'inimigo_encolher':''"
    class="inimigo_svg"
    viewBox="0 0 67.733332 67.733335"
    version="1.1"
@@ -55,8 +55,8 @@
        class="slime_color"
        d="M 1.7278781,48.367521 C 6.5873815,54.852327 13.114749,55.880506 48.91883,54.119652 84.722904,52.358797 59.58809,20.038332 46.336238,14.67647 33.08438,9.314609 21.961144,16.697761 14.152651,24.60205 6.3441576,32.50634 -3.1316255,41.882717 1.7278781,48.367521 Z"
        id="path6769"
-       sodipodi:nodetypes="zszzz"
-       style="fill:#00ff00;stroke:#000000;stroke-opacity:1" />
+       sodipodi:nodetypes="zszzz"  [style.fill]="monsterColor"/>
+      
     <ellipse
        fill="#ff0000"
        id="path8245"

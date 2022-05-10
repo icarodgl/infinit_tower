@@ -1,11 +1,12 @@
 {
   "name": "infinite-tower",
   "version": "1.0.0",
-  "homepage": "https://icarodgl.github.io/infinit_tower",
+  "homepage": "https://icarodgl.github.io/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "postbuild": "node ./postbuild.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -25,6 +26,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "copy": "^0.3.2",
     "@angular-devkit/build-angular": "~12.2.11",
     "@angular/cli": "~12.2.11",
     "@angular/compiler-cli": "~12.2.0",

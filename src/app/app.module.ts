@@ -14,6 +14,7 @@ import { MenuTattleComponent } from './menu-tattle/menu-tattle.component';
 import { MenuRestComponent } from './menu-rest/menu-rest.component';
 import { ShopComponent } from './shop/shop.component';
 import { CampfireComponent } from './campfire/campfire.component';
+import { OpeningComponent } from './opening/opening.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CampfireComponent } from './campfire/campfire.component';
          MenuTattleComponent,
          MenuRestComponent,
          ShopComponent,
-         CampfireComponent
+         CampfireComponent,
+         OpeningComponent
   ],
   imports: [
     BrowserModule,

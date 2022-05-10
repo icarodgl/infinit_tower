@@ -26,6 +26,8 @@ export class MenuTattleComponent implements OnInit {
   ngOnInit(): void {
     this.monsterService.monsterMaxHp$.next(this.monsterService.monster.hpMax)
     this.characterS.personMaxHp$.next(this.characterS.person.maxHp)
+    this.characterS.personHp$.next(this.characterS.person.hp)
+    this.monsterService.monsterHp$.next(this.monsterService.monster.hp)
   }
 
   atacar(){

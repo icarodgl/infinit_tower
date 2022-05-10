@@ -1,0 +1,21 @@
+.modal{
+    display: flex;
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background-color: #000000d9;
+    color: #acacac;
+    left: 5%;
+    top: 15%;
+    text-align: justify;
+    padding: 30px;
+    border: 6px double #a0a0a0;
+}
+.click{
+    display: flex;
+    position: absolute;
+    background-color: #000000d9;
+    color: #acacac;
+    right: 32%;
+    top: 90%;
+}
