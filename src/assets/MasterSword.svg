@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg13925"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="MasterSword.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview13927"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     showborder="false"
+     inkscape:zoom="0.52410025"
+     inkscape:cx="322.4574"
+     inkscape:cy="558.09934"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs13922">
+    <filter
+       inkscape:label="Cracked Lava"
+       inkscape:menu="Materials"
+       inkscape:menu-tooltip="A volcanic texture, a little like leather"
+       style="color-interpolation-filters:sRGB;"
+       id="filter16623"
+       x="-0.57961007"
+       y="-0.2303322"
+       width="2.2160447"
+       height="1.483246">
+      <feGaussianBlur
+         result="result0"
+         in="SourceGraphic"
+         stdDeviation="0.5"
+         id="feGaussianBlur16591" />
+      <feTurbulence
+         baseFrequency="0.042"
+         seed="488"
+         numOctaves="7"
+         result="result1"
+         id="feTurbulence16593" />
+      <feDisplacementMap
+         result="result5"
+         xChannelSelector="R"
+         scale="0"
+         in2="result1"
+         in="result1"
+         yChannelSelector="G"
+         id="feDisplacementMap16595" />
+      <feComposite
+         result="result2"
+         operator="in"
+         in2="result5"
+         in="result0"
+         id="feComposite16597" />
+      <feSpecularLighting
+         lighting-color="rgb(255,230,136)"
+         surfaceScale="2"
+         result="result4"
+         specularConstant="2"
+         specularExponent="65"
+         in="result2"
+         id="feSpecularLighting16601">
+        <feDistantLight
+           elevation="62"
+           azimuth="225"
+           id="feDistantLight16599" />
+      </feSpecularLighting>
+      <feComposite
+         k1="2.5"
+         k3="1"
+         k2="-0.5"
+         in2="result2"
+         in="result4"
+         operator="arithmetic"
+         result="result91"
+         id="feComposite16603" />
+      <feBlend
+         result="fbSourceGraphic"
+         mode="multiply"
+         in2="result91"
+         id="feBlend16605" />
+      <feColorMatrix
+         values="1 0 0 -1 0 1 0 1 -1 0 1 0 0 -1 0 -2 -0.5 0 5 -2"
+         in="fbSourceGraphic"
+         result="fbSourceGraphicAlpha"
+         id="feColorMatrix16607" />
+      <feGaussianBlur
+         stdDeviation="8"
+         in="fbSourceGraphicAlpha"
+         result="result0"
+         id="feGaussianBlur16609" />
+      <feOffset
+         dx="2"
+         dy="2"
+         in="result0"
+         result="result3"
+         id="feOffset16611" />
+      <feSpecularLighting
+         in="result0"
+         result="result1"
+         lighting-color="rgb(255,255,255)"
+         surfaceScale="4"
+         specularConstant="0.8"
+         specularExponent="15"
+         id="feSpecularLighting16615">
+        <fePointLight
+           x="-5000"
+           y="-10000"
+           z="20000"
+           id="fePointLight16613" />
+      </feSpecularLighting>
+      <feComposite
+         in2="fbSourceGraphicAlpha"
+         in="result1"
+         result="result2"
+         operator="in"
+         id="feComposite16617" />
+      <feComposite
+         in="fbSourceGraphic"
+         result="result4"
+         operator="arithmetic"
+         k2="2"
+         k3="2"
+         in2="result2"
+         id="feComposite16619" />
+      <feBlend
+         mode="darken"
+         in2="result4"
+         id="feBlend16621" />
+    </filter>
+    <filter
+       inkscape:label="Cracked Lava"
+       inkscape:menu="Materials"
+       inkscape:menu-tooltip="A volcanic texture, a little like leather"
+       style="color-interpolation-filters:sRGB;"
+       id="filter16675"
+       x="-0.97527251"
+       y="-0.33204246"
+       width="3.04616"
+       height="1.6966381">
+      <feGaussianBlur
+         result="result0"
+         in="SourceGraphic"
+         stdDeviation="0.5"
+         id="feGaussianBlur16643" />
+      <feTurbulence
+         baseFrequency="0.042"
+         seed="488"
+         numOctaves="7"
+         result="result1"
+         id="feTurbulence16645" />
+      <feDisplacementMap
+         result="result5"
+         xChannelSelector="R"
+         scale="0"
+         in2="result1"
+         in="result1"
+         yChannelSelector="G"
+         id="feDisplacementMap16647" />
+      <feComposite
+         result="result2"
+         operator="in"
+         in2="result5"
+         in="result0"
+         id="feComposite16649" />
+      <feSpecularLighting
+         lighting-color="rgb(255,230,136)"
+         surfaceScale="2"
+         result="result4"
+         specularConstant="2"
+         specularExponent="65"
+         in="result2"
+         id="feSpecularLighting16653">
+        <feDistantLight
+           elevation="62"
+           azimuth="225"
+           id="feDistantLight16651" />
+      </feSpecularLighting>
+      <feComposite
+         k1="2.5"
+         k3="1"
+         k2="-0.5"
+         in2="result2"
+         in="result4"
+         operator="arithmetic"
+         result="result91"
+         id="feComposite16655" />
+      <feBlend
+         result="fbSourceGraphic"
+         mode="multiply"
+         in2="result91"
+         id="feBlend16657" />
+      <feColorMatrix
+         values="1 0 0 -1 0 1 0 1 -1 0 1 0 0 -1 0 -2 -0.5 0 5 -2"
+         in="fbSourceGraphic"
+         result="fbSourceGraphicAlpha"
+         id="feColorMatrix16659" />
+      <feGaussianBlur
+         stdDeviation="8"
+         in="fbSourceGraphicAlpha"
+         result="result0"
+         id="feGaussianBlur16661" />
+      <feOffset
+         dx="2"
+         dy="2"
+         in="result0"
+         result="result3"
+         id="feOffset16663" />
+      <feSpecularLighting
+         in="result0"
+         result="result1"
+         lighting-color="rgb(255,255,255)"
+         surfaceScale="4"
+         specularConstant="0.8"
+         specularExponent="15"
+         id="feSpecularLighting16667">
+        <fePointLight
+           x="-5000"
+           y="-10000"
+           z="20000"
+           id="fePointLight16665" />
+      </feSpecularLighting>
+      <feComposite
+         in2="fbSourceGraphicAlpha"
+         in="result1"
+         result="result2"
+         operator="in"
+         id="feComposite16669" />
+      <feComposite
+         in="fbSourceGraphic"
+         result="result4"
+         operator="arithmetic"
+         k2="2"
+         k3="2"
+         in2="result2"
+         id="feComposite16671" />
+      <feBlend
+         mode="darken"
+         in2="result4"
+         id="feBlend16673" />
+    </filter>
+    <filter
+       inkscape:label="Cracked Lava"
+       inkscape:menu="Materials"
+       inkscape:menu-tooltip="A volcanic texture, a little like leather"
+       style="color-interpolation-filters:sRGB;"
+       id="filter16727"
+       x="-1.0911446"
+       y="-0.63090641"
+       width="3.2892642"
+       height="2.3236664">
+      <feGaussianBlur
+         result="result0"
+         in="SourceGraphic"
+         stdDeviation="0.5"
+         id="feGaussianBlur16695" />
+      <feTurbulence
+         baseFrequency="0.042"
+         seed="488"
+         numOctaves="7"
+         result="result1"
+         id="feTurbulence16697" />
+      <feDisplacementMap
+         result="result5"
+         xChannelSelector="R"
+         scale="0"
+         in2="result1"
+         in="result1"
+         yChannelSelector="G"
+         id="feDisplacementMap16699" />
+      <feComposite
+         result="result2"
+         operator="in"
+         in2="result5"
+         in="result0"
+         id="feComposite16701" />
+      <feSpecularLighting
+         lighting-color="rgb(255,230,136)"
+         surfaceScale="2"
+         result="result4"
+         specularConstant="2"
+         specularExponent="65"
+         in="result2"
+         id="feSpecularLighting16705">
+        <feDistantLight
+           elevation="62"
+           azimuth="225"
+           id="feDistantLight16703" />
+      </feSpecularLighting>
+      <feComposite
+         k1="2.5"
+         k3="1"
+         k2="-0.5"
+         in2="result2"
+         in="result4"
+         operator="arithmetic"
+         result="result91"
+         id="feComposite16707" />
+      <feBlend
+         result="fbSourceGraphic"
+         mode="multiply"
+         in2="result91"
+         id="feBlend16709" />
+      <feColorMatrix
+         values="1 0 0 -1 0 1 0 1 -1 0 1 0 0 -1 0 -2 -0.5 0 5 -2"
+         in="fbSourceGraphic"
+         result="fbSourceGraphicAlpha"
+         id="feColorMatrix16711" />
+      <feGaussianBlur
+         stdDeviation="8"
+         in="fbSourceGraphicAlpha"
+         result="result0"
+         id="feGaussianBlur16713" />
+      <feOffset
+         dx="2"
+         dy="2"
+         in="result0"
+         result="result3"
+         id="feOffset16715" />
+      <feSpecularLighting
+         in="result0"
+         result="result1"
+         lighting-color="rgb(255,255,255)"
+         surfaceScale="4"
+         specularConstant="0.8"
+         specularExponent="15"
+         id="feSpecularLighting16719">
+        <fePointLight
+           x="-5000"
+           y="-10000"
+           z="20000"
+           id="fePointLight16717" />
+      </feSpecularLighting>
+      <feComposite
+         in2="fbSourceGraphicAlpha"
+         in="result1"
+         result="result2"
+         operator="in"
+         id="feComposite16721" />
+      <feComposite
+         in="fbSourceGraphic"
+         result="result4"
+         operator="arithmetic"
+         k2="2"
+         k3="2"
+         in2="result2"
+         id="feComposite16723" />
+      <feBlend
+         mode="darken"
+         in2="result4"
+         id="feBlend16725" />
+    </filter>
+  </defs>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#808080;stroke-width:1.0626;-inkscape-stroke:none;stop-color:#000000"
+       d=""
+       id="path16919"
+       transform="scale(0.26458333)" />
+    <g
+       id="g23919"
+       transform="matrix(1.2945854,0,0,1.2945854,7.1357686,53.247303)">
+      <g
+         id="g23910">
+        <path
+           style="color:#000000;fill:#ff0000;stroke-width:0.294698;-inkscape-stroke:none"
+           d="m 67.499233,124.32309 c 20.17415,-97.989229 -43.04191,-47.341442 -9.9952,-71.037264 13.231628,9.930329 19.705138,-1.903208 21.870195,-10.551633 1.584277,-6.328472 -0.133407,-10.785628 1.768845,-4.589666 8.10185,25.118661 -13.68928,89.851203 -13.64384,86.178563 z"
+           id="path14594"
+           sodipodi:nodetypes="ccscc" />
+        <path
+           style="color:#000000;fill:#ff6600;stroke-width:0.189218;-inkscape-stroke:none"
+           d="m 67.499233,124.32309 c 12.242037,-66.206541 -25.58005,-32.839956 -5.9402,-49.27734 13.61783,11.929152 13.07054,-19.189193 14.04882,-10.503261 9.610888,20.453391 -8.13562,62.328251 -8.10862,59.780601 z"
+           id="path14594-6"
+           sodipodi:nodetypes="cccc" />
+        <path
+           style="color:#000000;fill:#ffcc00;stroke-width:0.129777;-inkscape-stroke:none"
+           d="m 67.499233,124.32309 c 6.993253,-35.332312 -22.86363,-17.28348 -5.3094,-25.934381 12.17171,6.278241 11.68254,-10.09917 12.55693,-5.52781 4.30366,9.170351 -7.27167,32.803001 -7.24753,31.462191 z"
+           id="path14594-8"
+           sodipodi:nodetypes="cccc" />
+        <ellipse
+           style="fill:#003380;stroke-width:0.294698;-inkscape-stroke:none;stop-color:#000000"
+           id="path21197"
+           cx="69.625214"
+           cy="133.02031"
+           rx="3.0184124"
+           ry="14.051796" />
+        <path
+           style="color:#000000;fill:#338000;stroke-width:0.0880452;-inkscape-stroke:none"
+           d="m 60.160825,131.05144 c 3.619174,-9.80414 24.528987,-9.11916 19.309077,-10.34088 -4.744271,-13.28285 -25.34122,9.64389 -19.309077,10.34088 z"
+           id="path17744"
+           sodipodi:nodetypes="ccc" />
+        <path
+           style="color:#000000;fill:#330080;stroke-width:0.294698;-inkscape-stroke:none"
+           d="m 67.28906,142.07451 4.685247,-0.0892 c 0,0 1.314198,8.18753 2.454176,8.83504 3.408564,1.93607 -6.926197,0.14199 -9.995192,-0.17849 -2.785841,-0.29091 1.500397,-3.17928 2.855769,-8.56731 z"
+           id="rect21359"
+           sodipodi:nodetypes="ccsscc" />
+      </g>
+    </g>
+  </g>
+</svg>

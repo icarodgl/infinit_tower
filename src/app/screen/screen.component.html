@@ -1,11 +1,10 @@
-<div>
 <div class="screen">
         <div class="imagens">
-            <app-sword class="arma"></app-sword>
+            <app-menu class="menu"></app-menu>
+            <app-sword *ngIf="encounter == encounterOptions.enemy"  class="arma"></app-sword>
             <app-slime *ngIf="encounter == encounterOptions.enemy" class="inimigo"></app-slime>
+            <app-sword *ngIf="encounter == encounterOptions.campfire" class="arma rest"></app-sword>
             <app-campfire *ngIf="encounter == encounterOptions.campfire" class="campfire"></app-campfire>
             <img class="fundo" src="../../assets/caverna1.svg" alt="fundo">
         </div>
-</div>
-
 </div>

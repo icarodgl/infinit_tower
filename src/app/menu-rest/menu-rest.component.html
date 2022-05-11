@@ -1,11 +1,11 @@
-<div class="row">
-    <div class="col">
-        <button (click)="changeMenuBattle.emit()" class="btn btn-dark">seguir viagem</button>
+<div class="menu">
+    <div (click)="changeMenuBattle.emit()" class="_buttons _seguir">
+        <img src="../../assets/espadasCrudas.svg" alt="Seguir viagem">
     </div>
-    <div class="col">
-        <button (click)="rest()" class="btn btn-dark">acampar</button>
+    <div (click)="rest()" class="_buttons _rest">
+        <img src="../../assets/rest.svg" alt="Descansar">
     </div>
-    <div class="col">
-        <button (click)="changeMenuInventory.emit()"  class="btn btn-dark">inventário</button>
+    <div class="_buttons _inventario" (click)="changeMenuInventory.emit()">
+       <img src="../../assets/IconInventario.svg" alt="">
     </div>
 </div>

@@ -1,15 +1,9 @@
-<div>
+
   <div ng *ngIf="!opening">
-    <div *ngIf="!battleS.isGameOver" class="corpo">
-      <div class="menu_left">
-        <app-screen></app-screen>
-        <app-menu></app-menu>
-      </div>
-      <div class="menu_right">
-        <app-points class=""></app-points>
-        <app-log class=""></app-log>
-      </div>
+    <div *ngIf="!battleS.isGameOver"  class="screen">
+      <app-screen></app-screen>
     </div>
+
     <div class="gameover" *ngIf="battleS.isGameOver">
       <h1>GAME OVER!</h1>
       <button class="_button">
@@ -17,9 +11,6 @@
       </button>
     </div>
   </div>
-
   <a class="opening" *ngIf="opening">
     <app-opening (click)="toggleOpening()"></app-opening>
   </a>
-
-</div>

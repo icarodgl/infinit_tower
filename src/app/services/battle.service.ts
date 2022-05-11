@@ -32,7 +32,8 @@ export class BattleService {
   gameReset(){
     this.isGameOver = false
     this.cService.newPerson()
-    this.mService.newMonster(1)
+    this.mService.newMonster(0)
+    this.rService.reset()
     this.monster$.next(this.mService.monster)
 
   }
@@ -104,7 +105,7 @@ export class BattleService {
     return Math.floor(Math.random()*100)
   }
   async menuChange(menu:string){
-    await this.delay(800)
+    await this.delay(200)
     if(menu == menus.rest){
       this.changeEncounter('campfire')
     }

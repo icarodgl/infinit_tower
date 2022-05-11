@@ -1,8 +1,17 @@
+.menu{
+    position: absolute;
+    z-index: 99;
+    display: flex;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+}
 .screen{
-    display:flex;
-    align-content: center;
-    height: 350px;
-    flex-direction: column
+    width: 100vw;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
 }
 .imagens{
     display:flex;
@@ -13,28 +22,39 @@
 .fundo{
     z-index: 1;
     position: absolute;
-    width: 500px;
+    height: 100%;
+    top: 0px;
 }
 .campfire{
     position: relative;
-    top: 75%;
+    top: 34vh;
+    right: 3vw;
     z-index: 99;
     align-self: center;
 }
 .inimigo{
     position: relative;
-    top: 75%;
-    right: 0%;
+    top: 34vh;
+    right: 15%;
     z-index: 99;
-    width: 200px;
     align-self: center;
+    display: flex;
+    width: 200px;
 }
 .arma{
     z-index: 99;
     position: relative;
-    top: 75%;
+    top: 228px;
     height: 200px;
+    right: 160px;
 
+}
+.rest{
+    transform: rotate(150deg);
+    top: 294px;
+    * svg{
+      width: 100px;  
+    }
 }
 .monster{
     background-color: rgb(62, 15, 15);

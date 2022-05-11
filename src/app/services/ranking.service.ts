@@ -31,4 +31,8 @@ export class RankingService {
   getFloor():number{
     return this._floor
   }
+  reset(){
+    this.floor$.next(0)
+    this.round$.next(0)
+  }
 }

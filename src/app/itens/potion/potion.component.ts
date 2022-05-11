@@ -8,11 +8,12 @@ import { LogsService } from 'src/app/services/logs.service';
   styleUrls: ['./potion.component.scss']
 })
 export class PotionComponent implements OnInit {
-
+  potions:number=0
   @Input() potionLevel = 1
   constructor(public cS:CharacterService, public lS:LogsService) { }
 
   ngOnInit(): void {
+    this.cS.person$.subscribe((p)=>this.potions = p.PotionInventory.length)
   }
 
   use(){
