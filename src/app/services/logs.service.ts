@@ -8,11 +8,28 @@ export class LogsService {
   logs:string[] = []
   constructor() { }
   
-  atack(atacker:string,reciver:string,damage:string|number):void{
-    this.logs.unshift(`${this.getTime()}: O ${atacker} atacou o ${reciver} dando ${damage} de dano`)
+  monsterAtack(atacker:string,attack:number, effective:number):void{
+    this.logs.unshift(`${this.getTime()}: O ${atacker} atacou você dando ${effective} de dano. (${attack-effective} 🛡️) `)
+  }
+  personAtack(reciver:string,attack:number, effective:number):void{
+    this.logs.unshift(`${this.getTime()}: Você atacou o ${reciver} dando ${effective} de dano. (${attack-effective} 🛡️)`)
+  }
+  personHeal(){
+    this.logs.unshift(`${this.getTime()}: Você se curou.`)
+
   }
   morte(morto:string){
-    this.logs.unshift(`${this.getTime()}: O ${morto} morreu.`)
+    this.logs.unshift(`${this.getTime()}: O ${morto} foi derrotado.`)
+  }
+  dropPotion(morto:string){
+    this.logs.unshift(`${this.getTime()}: O ${morto} deixou uma poção cair.`)
+  }
+  rest(){
+    this.logs.unshift(`${this.getTime()}: Você descansou por 2 rounds, recuperando toda sua vida.`)
+  }
+  nextFloor(floor:number){
+    this.logs.unshift(`${this.getTime()}: Você alcançou o ${floor}º`)
+
   }
   gameOver(){
     this.logs.unshift(`${this.getTime()}: GAME OVER!`)
@@ -21,4 +38,5 @@ export class LogsService {
   getTime(){
     return moment().format('H:mm:ss')
   }
+
 }

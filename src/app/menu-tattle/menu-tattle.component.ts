@@ -12,22 +12,21 @@ import { MonstersService } from '../services/monsters.service';
 export class MenuTattleComponent implements OnInit {
   @Output() changeMenu = new EventEmitter();
   @Output() changeMenuInventory = new EventEmitter();
+  @Output() changeMenuRest = new EventEmitter();
 
   personHP:Array<boolean> = [];
   monsterHP:Array<boolean> = [];
 
   constructor(public logService:LogsService, public battleService:BattleService,public monsterService:MonstersService, public characterS:CharacterService) {
-    this.monsterService.monsterMaxHp$.subscribe(hp=> {this.listarHPMaxMonstro(hp)})
-    this.characterS.personMaxHp$.subscribe(hp=> this.listarHPMaxPerson(hp))
-    this.characterS.personHp$.subscribe(hp =>this.changeHpPerson(hp))
-    this.monsterService.monsterHp$.subscribe(hp=>this.changeHpMonster(hp))
+    this.monsterService.monster$.subscribe(({hpMax})=> {this.listarHPMaxMonstro(hpMax)})
+    this.characterS.person$.subscribe(({maxHp})=> this.listarHPMaxPerson(maxHp))
+    this.characterS.person$.subscribe(({hp}) =>this.changeHpPerson(hp))
+    this.monsterService.monster$.subscribe(({hp})=>this.changeHpMonster(hp))
   }
 
   ngOnInit(): void {
-    this.monsterService.monsterMaxHp$.next(this.monsterService.monster.hpMax)
-    this.characterS.personMaxHp$.next(this.characterS.person.maxHp)
-    this.characterS.personHp$.next(this.characterS.person.hp)
-    this.monsterService.monsterHp$.next(this.monsterService.monster.hp)
+    this.characterS.person$.next(this.characterS._person)
+    this.monsterService.monster$.next(this.monsterService.monster)
   }
 
   atacar(){
@@ -49,7 +48,7 @@ export class MenuTattleComponent implements OnInit {
     }
   }
   changeHpPerson(hp:number){
-    for (let i = 0; i < this.characterS.person.maxHp; i++) {
+    for (let i = 0; i < this.characterS._person.maxHp; i++) {
       if(i < hp){
         this.personHP[i] = false;
       }else{

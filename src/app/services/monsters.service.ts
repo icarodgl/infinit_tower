@@ -6,39 +6,37 @@ import { MonsterModel } from '../models/moster.mode';
   providedIn: 'root'
 })
 export class MonstersService {
-  monster:MonsterModel = new MonsterModel(
-    "slime",
-    5,
-    5,
-    5,
-    1,
-  )
-  monsterHp$:Subject<number> = new Subject<number>()
-  monsterMaxHp$:Subject<number> = new Subject<number>()
+  monster:MonsterModel = {
+    name:"slime",
+    hp:5,
+    hpMax:5,
+    attack:5,
+    defense:1,
+    };
+  monster$:Subject<MonsterModel> = new Subject()
   constructor() {
-    this.monsterMaxHp$.next(this.monster.hpMax)
-    this.monsterHp$.next(this.monster.hp)
+    this.monster$.subscribe(m=>this.monster=m)
   }
-  getMonster():MonsterModel{
-    return this.monster
-  }
-  newMonster(nivel:number):void{
-    this.monster = new MonsterModel(
-      "Slime",
-      5*nivel,
-      5*nivel,
-      5*(nivel/2),
-      1,
-    ) 
-  }
-  reciveDamage(damage:number):void{
-      this.monster.hp = this.monster.hp -( damage - this.monster.defense)
-      this.monsterHp$.next(this.monster.hp)
 
+  newMonster(nivel:number):void{
+    this.monster$.next({
+    name:"slime",
+    hp:5+nivel,
+    hpMax:5+nivel,
+    attack:2+(nivel/4),
+    defense:1+(nivel/4),
+    }
+    )
+
+  }
+  reciveDamage(damage:number):number{
+    let dmg =  this.monster.hp = this.monster.hp -( damage - this.monster.defense)
+      this.monster$.next(this.monster)
+    return dmg
   }
   reciveHeal(heal:number):void{
       this.monster.hp = this.monster.hp + heal
-      this.monsterHp$.next(this.monster.hp)
+      this.monster$.next(this.monster)
   }
   dealDamage():number{
       return this.monster.attack

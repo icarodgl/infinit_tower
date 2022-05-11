@@ -3,7 +3,7 @@ color: rgb(217, 12, 12);
 margin-left: 2px;
 margin-right: 2px;
 }
-.bi-suit-heart-fill{
+.bi-suit-heart{
     color: rgb(217, 12, 12);
     margin-left: 2px;
     margin-right: 2px;
@@ -15,9 +15,27 @@ margin-right: 2px;
 .menu{
     display: flex;
     flex-direction: column;
+    
 }
-.buttons{
+._buttons{
     width: min-content;
     display: flex;
     flex-direction: row;
+    justify-items: space-around;
+    .btn{
+        margin-right: 20px;
+    }
+}
+._potions{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 80%;
+}
+._potion{
+    width: 50px;
+    border: 2px solid;
+    margin: 5px;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
 }

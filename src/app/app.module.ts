@@ -15,6 +15,7 @@ import { MenuRestComponent } from './menu-rest/menu-rest.component';
 import { ShopComponent } from './shop/shop.component';
 import { CampfireComponent } from './campfire/campfire.component';
 import { OpeningComponent } from './opening/opening.component';
+import { PotionComponent } from './itens/potion/potion.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { OpeningComponent } from './opening/opening.component';
          MenuRestComponent,
          ShopComponent,
          CampfireComponent,
-         OpeningComponent
+         OpeningComponent,
+         PotionComponent
   ],
   imports: [
     BrowserModule,

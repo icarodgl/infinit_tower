@@ -1,18 +1,19 @@
 <div class="menu">
-    <app-menu-tattle *ngIf="menu == menus.battle"
+    <app-menu-tattle *ngIf="menuService.menu == menus.battle"
     (changeMenu)="changeMenu(menus.rest)"
-    (changeMenuInventory)="changeMenu(menus.inventory)">
+    (changeMenuInventory)="changeMenu(menus.inventory)"
+    (changeMenuRest)="changeMenu(menus.rest)">
     </app-menu-tattle>
-    <app-menu-rest *ngIf="menu == menus.rest"
+    <app-menu-rest *ngIf="menuService.menu == menus.rest"
     (changeMenuBattle)="changeMenu(menus.battle)"
     (changeMenuInventory)="changeMenu(menus.inventory)"
     (changeMenuShop)="changeMenu(menus.shop)"
     >
     </app-menu-rest>
-    <app-inventory *ngIf="menu == menus.inventory"
+    <app-inventory *ngIf="menuService.menu == menus.inventory"
     (changeMenuRest)="changeMenu(menus.rest)">
     </app-inventory>
-    <app-shop *ngIf="menu == menus.shop"
+    <app-shop *ngIf="menuService.menu == menus.shop"
     (changeMenu)="changeMenu(menus.rest)">
     </app-shop>
 </div>

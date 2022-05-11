@@ -15,7 +15,9 @@
     </div>
     <div class="_buttons">
             <button (click)="atacar()" class="btn btn-dark">atacar</button>
-            <button (click)="changeMenuInventory.emit()" class="btn btn-dark">itens</button>
-            <button class="btn btn-dark">fugir</button>
+            <button class="btn btn-dark" (click)="changeMenuRest.emit()" >fugir</button>
+    </div>
+    <div class="_potions" >
+        <div *ngFor="let pot of characterS._person.PotionInventory" class="_potion"><app-potion></app-potion></div>
     </div>
 </div>

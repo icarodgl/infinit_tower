@@ -1,6 +1,10 @@
 .list-group{
-    max-height: 300px;
+    max-height: 400px;
     overflow-x: hidden;
     overflow-y: scroll;
     
+}
+.list-group-item{
+   font-size: large;
+   background-color: rgba(255, 255, 255, 0);
 }

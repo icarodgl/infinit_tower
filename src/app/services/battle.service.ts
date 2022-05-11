@@ -1,39 +1,48 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { CharacterModel } from '../models/character.model';
 import { MonsterModel } from '../models/moster.mode';
+import { PotionsItem } from '../models/potions.mode';
 import { CharacterService } from './character.service';
 import { LogsService } from './logs.service';
 import { MonstersService } from './monsters.service';
+import { RankingService } from './ranking.service';
+import { MenuService } from './menu.service';
+import { menus } from './menus';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BattleService {
+  monsters = 0
   isGameOver:boolean = false
   encounter$:Subject<string> = new Subject<string>();
   monster$:Subject<MonsterModel> = new Subject<MonsterModel>();
-  round = 1
   weaponAnim = false
   monsterAnim = false
-  constructor(public monsterService:MonstersService, public characterService:CharacterService, public logService:LogsService) {
-    this.monster$.next(this.monsterService.monster)
+  constructor(
+      public mService:MonstersService,
+      public cService:CharacterService,
+      public lService:LogsService,
+      public rService:RankingService,
+      public menuService:MenuService
+      ) {
+    this.monster$.next(this.mService.monster)
+    this.menuService.menu$.subscribe(m=>this.menuChange(m))
   }
   gameReset(){
     this.isGameOver = false
-    this.characterService.newPerson()
-    this.monsterService.newMonster(1)
-    this.monster$.next(this.monsterService.monster)
-    this.round = 1
+    this.cService.newPerson()
+    this.mService.newMonster(1)
+    this.monster$.next(this.mService.monster)
+
   }
   atackMonster(){
-    let playerAttack = this.characterService.dealDamage()
-    this.monsterService.reciveDamage(playerAttack)
-    this.logService.atack("Você",this.monsterService.monster.name,playerAttack)
+    let playerAttack = Math.floor(this.cService.dealDamage() + (this.rollDice()*.05)) 
+    let recived = Math.floor(this.mService.reciveDamage(playerAttack))
+    this.lService.personAtack(this.mService.monster.name,playerAttack,recived) 
     this.weaponAnimate()
     this.delay(1000)
-    if(this.monsterService.monster.hp <= 0){
+    if(this.mService.monster.hp <= 0){
       this.monsterAnimate()
       this.nextMonster()
     }else{
@@ -58,20 +67,49 @@ export class BattleService {
     });
   }
   monsterHitBack(){
-    let monsterAttack = this.monsterService.dealDamage()
-    this.characterService.recieveDamage(monsterAttack)
-    this.logService.atack(this.monsterService.monster.name,'você',monsterAttack)
-    if(this.characterService.person.hp <= 0){
+    let monsterAttack = Math.floor(this.mService.dealDamage() + (this.rollDice()*.05))
+    let recived = Math.floor(this.cService.recieveDamage(monsterAttack))
+    this.lService.monsterAtack(this.mService.monster.name,monsterAttack,recived)
+    if(this.cService._person.hp <= 0){
       this.isGameOver = true
-      this.logService.gameOver()
+      this.lService.gameOver()
     }
   }
   nextMonster(){
-    this.round ++;
-    this.logService.morte(this.monsterService.monster.name)
-    this.monsterService.newMonster(this.round)
+    this.monsters++
+    this.lService.morte(this.mService.monster.name)
+    this.dropItens(this.mService.monster.name)
+    this.rService.nextRound()
+    if(this.monsters == 5){
+      this.monsters = 0
+      this.rService.nextFloor()
+      this.lService.nextFloor(this.rService.getFloor())
+    }  
+    this.mService.newMonster(this.rService.getFloor())  
   }
   changeEncounter(enconter:string):void{
     this.encounter$.next(enconter)
+  }
+  dropItens(monstro:string){
+    let dice = this.rollDice()
+    console.log("DROP DICE: ",dice);
+    
+   if( dice <= 50){
+         let pot = new PotionsItem()
+    this.cService.addItemInventory(pot)
+    this.lService.dropPotion(monstro)
+   }
+  }
+  rollDice(){
+    return Math.floor(Math.random()*100)
+  }
+  async menuChange(menu:string){
+    await this.delay(800)
+    if(menu == menus.rest){
+      this.changeEncounter('campfire')
+    }
+    if(menu == menus.battle){
+      this.changeEncounter('enemy')
+    }
   }
 }

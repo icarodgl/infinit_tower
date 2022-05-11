@@ -8,11 +8,17 @@ import { MonstersService } from 'src/app/services/monsters.service';
   styleUrls: ['./slime.component.scss']
 })
 export class SlimeComponent implements OnInit {
+  monsterColor = 'rgba(20, 145, 13, 0.478)';
+  damaged = 0;
+  constructor(public bs: BattleService, public ms: MonstersService) { }
 
-  constructor(public bs:BattleService) { }
-  monsterColor = 'rgba(20, 145, 13, 0.478)'
   ngOnInit(): void {
+    this.ms.monster$.subscribe(({hp} )=> this.takeDamaged(hp))
   }
 
+
+  takeDamaged(hp: number) {
+    this.damaged = (hp /this.ms.monster.hpMax)*100
+  }
 
 }

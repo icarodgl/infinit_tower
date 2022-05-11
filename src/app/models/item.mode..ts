@@ -16,3 +16,4 @@ export class ItemModel{
         }
 }
 export const unarmed:ItemModel = new ItemModel("unarmed",1,1,1)
+
