@@ -7,6 +7,7 @@ import { MonsterModel } from '../models/moster.mode';
 })
 export class MonstersService {
   monster:MonsterModel = {
+    nivel:1,
     name:"slime",
     hp:5,
     hpMax:5,
@@ -20,6 +21,7 @@ export class MonstersService {
 
   newMonster(nivel:number):void{
     this.monster$.next({
+      nivel:nivel,
     name:"slime",
     hp:5+nivel,
     hpMax:5+nivel,
@@ -30,9 +32,12 @@ export class MonstersService {
 
   }
   reciveDamage(damage:number):number{
-    let dmg =  this.monster.hp = this.monster.hp -( damage - this.monster.defense)
+    let dmg = ( damage - this.monster.defense)
+    if(dmg > 0){
+      this.monster.hp = this.monster.hp - dmg
       this.monster$.next(this.monster)
-    return dmg
+      return dmg
+    }else{return 0}
   }
   reciveHeal(heal:number):void{
       this.monster.hp = this.monster.hp + heal

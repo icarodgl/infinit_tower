@@ -9,16 +9,16 @@ import { MonstersService } from 'src/app/services/monsters.service';
 })
 export class SlimeComponent implements OnInit {
   monsterColor = 'rgba(20, 145, 13, 0.478)';
-  damaged = 0;
+  damaged = 100;
+  monsterName=''
+  nivel = 0
   constructor(public bs: BattleService, public ms: MonstersService) { }
 
   ngOnInit(): void {
-    this.ms.monster$.subscribe(({hp} )=> this.takeDamaged(hp))
+    this.ms.monster$.subscribe(({hp,hpMax,name,nivel} )=> {
+      this.damaged = (hp/hpMax)*100
+      this.monsterName = name
+      this.nivel = nivel
+    })
   }
-
-
-  takeDamaged(hp: number) {
-    this.damaged = (hp /this.ms.monster.hpMax)*100
-  }
-
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { max } from 'moment';
 import { BattleService } from '../services/battle.service';
+import { CharacterService } from '../services/character.service';
 import { MenuService } from '../services/menu.service';
 
 @Component({
@@ -15,8 +17,10 @@ export class MenuComponent implements OnInit {
     battle:"battle",
     shop:"shop"
   }
+  life = 100
   menu = 'battle'
-  constructor(public battleService:BattleService,public menuService:MenuService) {
+  constructor(public cS:CharacterService ,public battleService:BattleService,public menuService:MenuService) {
+    cS.person$.subscribe(({hp,maxHp})=>{ this.life = (hp/maxHp)*100})
    }
   ngOnInit(): void {
   }

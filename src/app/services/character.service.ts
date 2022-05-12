@@ -25,9 +25,12 @@ export class CharacterService {
     this.person$.next(person)
   }
   recieveDamage(damage: number): number {
-    let dmg = this._person.hp = this._person.hp - (damage - (this._person.defense + this._person.leftHand.defese + this._person.rightHand.defese))
-    this.person$.next(this._person)
-    return dmg
+    let dmg = (damage - (this._person.defense + this._person.leftHand.defese + this._person.rightHand.defese))
+    if(dmg>0){
+          this._person.hp = this._person.hp - dmg
+          this.person$.next(this._person)
+          return dmg
+    }else{return 0} 
   }
   recieveFullHeal(): void {
     this._person.hp = this._person.maxHp

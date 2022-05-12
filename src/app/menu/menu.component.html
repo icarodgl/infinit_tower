@@ -1,4 +1,4 @@
-    <div class="life"></div>
+    <div class="life"><div class="life_fill" [style.height]="life+'%'"></div></div>
     <app-menu-tattle class="menu" *ngIf="menuService.menu == menus.battle"
     (changeMenu)="changeMenu(menus.rest)"
     (changeMenuInventory)="changeMenu(menus.inventory)"

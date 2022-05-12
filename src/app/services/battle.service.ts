@@ -19,6 +19,7 @@ export class BattleService {
   monster$:Subject<MonsterModel> = new Subject<MonsterModel>();
   weaponAnim = false
   monsterAnim = false
+  encontersFloor=3
   constructor(
       public mService:MonstersService,
       public cService:CharacterService,
@@ -38,7 +39,7 @@ export class BattleService {
 
   }
   atackMonster(){
-    let playerAttack = Math.floor(this.cService.dealDamage() + (this.rollDice()*.05)) 
+    let playerAttack = Math.floor(this.cService.dealDamage()) 
     let recived = Math.floor(this.mService.reciveDamage(playerAttack))
     this.lService.personAtack(this.mService.monster.name,playerAttack,recived) 
     this.weaponAnimate()
@@ -68,7 +69,7 @@ export class BattleService {
     });
   }
   monsterHitBack(){
-    let monsterAttack = Math.floor(this.mService.dealDamage() + (this.rollDice()*.05))
+    let monsterAttack = Math.floor(this.mService.dealDamage())
     let recived = Math.floor(this.cService.recieveDamage(monsterAttack))
     this.lService.monsterAtack(this.mService.monster.name,monsterAttack,recived)
     if(this.cService._person.hp <= 0){
@@ -76,16 +77,17 @@ export class BattleService {
       this.lService.gameOver()
     }
   }
-  nextMonster(){
+  async nextMonster(){
     this.monsters++
     this.lService.morte(this.mService.monster.name)
     this.dropItens(this.mService.monster.name)
     this.rService.nextRound()
-    if(this.monsters == 5){
+    if(this.monsters == this.encontersFloor){
       this.monsters = 0
       this.rService.nextFloor()
       this.lService.nextFloor(this.rService.getFloor())
     }  
+    await this.delay(1000)
     this.mService.newMonster(this.rService.getFloor())  
   }
   changeEncounter(enconter:string):void{

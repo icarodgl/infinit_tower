@@ -17,8 +17,8 @@
     ._button{
         cursor:pointer;
         display: flex;
-        width: 160px;
-        height: 160px;
+        width: 100px;
+        height: 100px;
         align-items: center;
         justify-content: center;
         img{
@@ -30,8 +30,10 @@
         border-radius: 50%;
         background-color: rgba(0, 0, 0, 0.5);
         position: absolute;
-        bottom: 4vh;
+        bottom: 12vh;
         left: 20vw;
+        width: 120px;
+        height: 120px;
     }
     ._scape{
         border-radius: 50%;
@@ -41,14 +43,13 @@
         right: 20vw;
     }
     ._potions{
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
         border-radius: 50%;
         background-color: rgba(0, 0, 0, 0.5);
         position: absolute;
         bottom: 4vh;
         left: 30vw;
-        
         .potion_image{
             width: 100%;
             height: 100%;
