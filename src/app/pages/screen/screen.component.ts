@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EncounterOptions } from '../models/encounter.model';
-import { BattleService } from '../services/battle.service';
-import { MonstersService } from '../services/monsters.service';
+import { EncounterOptions } from '../../models/encounter.model';
+import { BattleService } from '../../services/battle.service';
 
 @Component({
   selector: 'app-screen',

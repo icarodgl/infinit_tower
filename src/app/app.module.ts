@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LogPageComponent } from './pages/logpage/log.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { PointsComponent } from './pages/points/points.component';
-import { ScreenComponent } from './screen/screen.component';
+import { ScreenComponent } from './pages/screen/screen.component';
 import { SlimeComponent } from './pages/monsters/slime/slime.component';
 import { SwordComponent } from './pages/itens/sword/sword.component';
 import { InventoryComponent } from './pages/inventory/inventory.component';
