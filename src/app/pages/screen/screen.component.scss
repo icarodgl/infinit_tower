@@ -44,6 +44,11 @@
     align-self: center;
     display: flex;
     width: 200px;
+    @media (max-width:800px) {
+        width: 160px;
+        top: 35vh;
+        right: 15%;
+    }
 }
 .arma{
     z-index: 20;
@@ -51,6 +56,11 @@
     bottom: -20vh;
     height: 200px;
     right: 50px;
+    @media (max-width:800px) {
+        width: 160px;
+        top: 30vh;
+        right: 15%;
+    }
 
 }
 .rest{
