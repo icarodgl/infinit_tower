@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { CharacterService } from '../services/character.service';
-import { LogsService } from '../services/logs.service';
-import { RankingService } from '../services/ranking.service';
+import { CharacterService } from '../../services/character.service';
+import { LogsService } from '../../services/logs.service';
+import { RankingService } from '../../services/ranking.service';
 
 @Component({
   selector: 'app-menu-rest',

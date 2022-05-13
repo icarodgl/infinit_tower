@@ -1,9 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { BattleService } from '../services/battle.service';
-import { CharacterService } from '../services/character.service';
-import { LogsService } from '../services/logs.service';
-import { MenuService } from '../services/menu.service';
-import { MonstersService } from '../services/monsters.service';
+import { BattleService } from '../../services/battle.service';
+import { CharacterService } from '../../services/character.service';
+import { LogsService } from '../../services/logs.service';
+import { MenuService } from '../../services/menu.service';
+import { MonstersService } from '../../services/monsters.service';
 
 @Component({
   selector: 'app-menu-tattle',

@@ -3,24 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LogComponent } from './log/log.component';
-import { MenuComponent } from './menu/menu.component';
-import { PointsComponent } from './points/points.component';
+import { LogPageComponent } from './pages/logpage/log.component';
+import { MenuComponent } from './pages/menu/menu.component';
+import { PointsComponent } from './pages/points/points.component';
 import { ScreenComponent } from './screen/screen.component';
-import { SlimeComponent } from './monsters/slime/slime.component';
-import { SwordComponent } from './itens/sword/sword.component';
-import { InventoryComponent } from './inventory/inventory.component';
-import { MenuTattleComponent } from './menu-tattle/menu-tattle.component';
-import { MenuRestComponent } from './menu-rest/menu-rest.component';
-import { ShopComponent } from './shop/shop.component';
-import { CampfireComponent } from './campfire/campfire.component';
-import { OpeningComponent } from './opening/opening.component';
-import { PotionComponent } from './itens/potion/potion.component';
+import { SlimeComponent } from './pages/monsters/slime/slime.component';
+import { SwordComponent } from './pages/itens/sword/sword.component';
+import { InventoryComponent } from './pages/inventory/inventory.component';
+import { MenuTattleComponent } from './pages/menu-tattle/menu-tattle.component';
+import { MenuRestComponent } from './pages/menu-rest/menu-rest.component';
+import { ShopComponent } from './pages/shop/shop.component';
+import { CampfireComponent } from './pages/campfire/campfire.component';
+import { OpeningComponent } from './pages/opening/opening.component';
+import { PotionComponent } from './pages/itens/potion/potion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LogComponent,
+    LogPageComponent,
     PointsComponent,
     ScreenComponent,
     MenuComponent,

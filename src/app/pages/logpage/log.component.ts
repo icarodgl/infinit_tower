@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { LogsService } from '../services/logs.service';
+import { LogsService } from '../../services/logs.service';
 
 @Component({
-  selector: 'app-log',
+  selector: 'app-log-page',
   templateUrl: './log.component.html',
   styleUrls: ['./log.component.scss']
 })
-export class LogComponent implements OnInit {
+export class LogPageComponent implements OnInit {
   logs:string[] = []
   constructor(public logService:LogsService){
   }

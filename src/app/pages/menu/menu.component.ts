@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { max } from 'moment';
-import { BattleService } from '../services/battle.service';
-import { CharacterService } from '../services/character.service';
-import { MenuService } from '../services/menu.service';
+import { BattleService } from '../../services/battle.service';
+import { CharacterService } from '../../services/character.service';
+import { MenuService } from '../../services/menu.service';
 
 @Component({
   selector: 'app-menu',
