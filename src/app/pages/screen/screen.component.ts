@@ -1,20 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { EncounterOptions } from '../../models/encounter.model';
-import { BattleService } from '../../services/battle.service';
-
+import { MenuService } from 'src/app/services/menu.service';
+import { menus } from 'src/app/services/menus';
 @Component({
   selector: 'app-screen',
   templateUrl: './screen.component.html',
   styleUrls: ['./screen.component.scss']
 })
+
 export class ScreenComponent implements OnInit {
-  encounter:string = 'enemy';
-  encounterOptions:EncounterOptions;
-  constructor(public battleService:BattleService) { 
-    this.encounterOptions = new EncounterOptions()
+  menus=menus
+  constructor(public menuService:MenuService) { 
   }
 
   ngOnInit(): void {
-    this.battleService.encounter$.subscribe(e => this.encounter = e)
   }
 }

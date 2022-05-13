@@ -1,15 +1,56 @@
 ._item{
+    z-index: 80;
     margin: 1px;
     width: 64px;
     height: 64px;
     border: 1px solid black;
 }
 .itens{
+    position: relative;
     display: flex;
-    flex-wrap:wrap
+    flex-wrap:wrap;
+    width: 300px;
+    img{
+        z-index: 70;
+        position: absolute;
+        left: -4vw;
+        top: -10vh;
+        width: 360px;
+        @media (max-width:800px) {
+            left: -10vw;       
+        }
+    }
 }
 .inventory{
     display: flex;
-    max-width: 500px;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
     flex-direction: column;
+
+    @media (max-width:800px) {
+        left: 5vw;       
+    }
+}
+._button{
+    cursor: pointer;
+    z-index: 99;
+    position: absolute;
+    bottom: 5vh;
+    left: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 20px;
+    border-radius: 50%;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 5px;
+    padding-right: 6px;
+    @media (max-width:800px) {
+        left: 5vw;
+            
+    }
 }

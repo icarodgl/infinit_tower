@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BattleService } from './services/battle.service';
+import { MenuService } from './services/menu.service';
 
 @Component({
   selector: 'app-root',
@@ -9,18 +10,14 @@ import { BattleService } from './services/battle.service';
 })
 export class AppComponent {
   title = 'InfiniteTower';
-  opening = true
-  constructor(public battleS:BattleService,private route: ActivatedRoute){
-    this.route.queryParamMap.subscribe((params) => {
-      this.opening = (params.get('opening') != 'false' || params.get('opening') == null)
-  }
-);
+
+  constructor(public battleS:BattleService,public menuS: MenuService){
 
   }
   continue(){
     this.battleS.gameReset()
   }
   toggleOpening(){
-    this.opening = !this.opening
+    this.menuS.toggleOpening()
   }
 }

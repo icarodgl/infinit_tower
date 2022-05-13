@@ -14,6 +14,12 @@
     background-color: rgba(0, 0, 0, 0.8);
     height: 50vh;
     width: 42px;
+    @media (max-width:800px) {
+        height: 50vh;
+        width: 42px;
+        top: 10vh;
+        left: 3vw;
+    }
 }
 .life_fill{
     width: 100%;

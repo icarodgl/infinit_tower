@@ -7,7 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class InventoryComponent implements OnInit {
   @Output() changeMenuRest = new EventEmitter();
-  inventory = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,]
+  inventory = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
   constructor() { }
 
   ngOnInit(): void {

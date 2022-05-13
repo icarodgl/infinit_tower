@@ -1,11 +1,10 @@
 <div class="inventory">
     <div class="title">
-       Inventário  <button (click)="changeMenuRest.emit()"  class="btn btn-dark">Voltar</button>
+    <div (click)="changeMenuRest.emit()" class="_button"> Voltar </div>
     </div>
-    <div class="itens">
-    <div class="_item" *ngFor="let item of inventory;">
-      
+    <div class="itens"> 
+        <div class="_item" *ngFor="let item of inventory;">
+        </div>
+    <img src="../../../assets/Inventario.svg" alt="sacola de Inventário">
     </div>
-    </div>
-
 </div>

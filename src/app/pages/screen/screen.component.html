@@ -2,10 +2,10 @@
     <app-points class="_points"></app-points>
         <div class="imagens">
             <app-menu class="menu"></app-menu>
-            <app-sword *ngIf="encounter == encounterOptions.enemy"  class="arma"></app-sword>
-            <app-slime *ngIf="encounter == encounterOptions.enemy" class="inimigo"></app-slime>
-            <app-sword *ngIf="encounter == encounterOptions.campfire" class="arma rest"></app-sword>
-            <app-campfire *ngIf="encounter == encounterOptions.campfire" class="campfire"></app-campfire>
+            <app-sword *ngIf="menuService.menu == menus.battle"  class="arma"></app-sword>
+            <app-slime *ngIf="menuService.menu == menus.battle" class="inimigo"></app-slime>
+            <app-sword *ngIf="menuService.menu == menus.rest" class="arma rest"></app-sword>
+            <app-campfire *ngIf="menuService.menu == menus.rest" class="campfire"></app-campfire>
             <img class="fundo" src="../../assets/caverna1.svg" alt="fundo">
         </div>
 </div>

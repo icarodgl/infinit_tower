@@ -1,5 +1,5 @@
 
-  <div ng *ngIf="!opening">
+  <div ng *ngIf="!menuS.opening">
     <div *ngIf="!battleS.isGameOver"  class="screen">
       <app-screen></app-screen>
     </div>
@@ -11,6 +11,6 @@
       </button>
     </div>
   </div>
-  <a class="opening" *ngIf="opening">
+  <a class="opening" *ngIf="menuS.opening">
     <app-opening (click)="toggleOpening()"></app-opening>
   </a>
