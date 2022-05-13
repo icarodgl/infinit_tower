@@ -1,6 +1,7 @@
 <div class="menu">
     <div class="_buttons">
-            <div (click)="atacar()" class="_button _attack"><img src="../../assets/ataque.svg" alt="Atacar!"> </div>
+            <div *ngIf="menuService.inAttack" class="_button _attack _inattack"><img src="../../assets/ataque.svg" alt="Atacar!"> </div>
+            <div *ngIf="!menuService.inAttack" (click)="atacar()" class="_button _attack"><img src="../../assets/ataque.svg" alt="Atacar!"> </div>
             <div (click)="changeMenuRest.emit()" class="_button _scape"><img src="../../assets/fugir.svg" alt="Fugir"></div>
             <div class="_button _potions"> <app-potion class="potion_image"></app-potion></div>
     </div>

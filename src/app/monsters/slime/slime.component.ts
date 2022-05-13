@@ -15,10 +15,11 @@ export class SlimeComponent implements OnInit {
   constructor(public bs: BattleService, public ms: MonstersService) { }
 
   ngOnInit(): void {
-    this.ms.monster$.subscribe(({hp,hpMax,name,nivel} )=> {
+    this.ms.monster$.subscribe(({hp,hpMax,name,nivel,cor} )=> {
       this.damaged = (hp/hpMax)*100
       this.monsterName = name
       this.nivel = nivel
+      this.monsterColor = cor
     })
   }
 }

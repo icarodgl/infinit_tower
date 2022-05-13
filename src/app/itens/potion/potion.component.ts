@@ -8,18 +8,22 @@ import { LogsService } from 'src/app/services/logs.service';
   styleUrls: ['./potion.component.scss']
 })
 export class PotionComponent implements OnInit {
-  potions:number=0
+  potions: number = 0
   @Input() potionLevel = 1
-  constructor(public cS:CharacterService, public lS:LogsService) { }
+  constructor(public charService: CharacterService, public logS: LogsService) { }
 
   ngOnInit(): void {
-    this.cS.person$.subscribe((p)=>this.potions = p.PotionInventory.length)
+    this.charService.person$.subscribe((p) => {
+      this.potions = p.PotionInventory
+    })
   }
 
-  use(){
-    this.cS.recieveFullHeal()
-    this.cS.consumePotion()
-    this.lS.personHeal()
+  async use() {
+    let potIsUsed: boolean = this.charService.recieveHeal(10)
+    if (potIsUsed) {
+      this.charService.consumePotion()
+      this.logS.personHeal()
+    }
   }
 
 }

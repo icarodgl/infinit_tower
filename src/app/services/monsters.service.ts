@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { MonsterModel } from '../models/moster.mode';
+import { monsterVariant } from './monster.variant';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class MonstersService {
     hpMax:5,
     attack:5,
     defense:1,
+    cor:'rgba(20, 145, 13, 0.478)'
     };
   monster$:Subject<MonsterModel> = new Subject()
   constructor() {
@@ -20,13 +22,16 @@ export class MonstersService {
   }
 
   newMonster(nivel:number):void{
+    let dice:number = Math.floor(Math.random()*(monsterVariant.length-1))
+    
     this.monster$.next({
+      cor:monsterVariant[dice].cor,
       nivel:nivel,
-    name:"slime",
-    hp:5+nivel,
-    hpMax:5+nivel,
-    attack:2+(nivel/4),
-    defense:1+(nivel/4),
+      name:`Slime ${monsterVariant[dice].sufixo}`,
+      hp:5+nivel,
+      hpMax:5+nivel,
+      attack:2+(nivel/2),
+      defense:1+(nivel/2),
     }
     )
 

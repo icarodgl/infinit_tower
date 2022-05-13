@@ -9,6 +9,7 @@ import { menus } from './menus';
 
 export class MenuService {
   menu:string = menus.battle
+  inAttack:boolean = false
   menu$ : Subject<string> = new Subject<string>()
   constructor() {
     this.menu$.subscribe(m=>this.menu=m)
@@ -16,5 +17,8 @@ export class MenuService {
 
   changeMenu(menu:string){
     this.menu$.next(menu)
+  }
+  toggleInAttack(){
+    this.inAttack = !this.inAttack
   }
 }

@@ -36,9 +36,17 @@ export class CharacterService {
     this._person.hp = this._person.maxHp
     this.person$.next(this._person)
   }
-  recieveHeal(heal: number): void {
-    this._person.hp = this._person.hp + heal
+  recieveHeal(heal: number): boolean {
+     if (heal+this._person.hp >= this._person.maxHp){
+       this._person.hp = this._person.maxHp * 1
+
+     }else if(this._person.hp != this._person.maxHp){
+      this._person.hp =this._person.hp+heal
+     }else{
+       return false
+     }
     this.person$.next(this._person)
+    return true
   }
   setLeftHand(item: ItemModel): void {
     if (item.hands == 2) {
@@ -90,9 +98,11 @@ export class CharacterService {
   }
 
   addItemInventory(item:PotionsItem){
-    this._person.PotionInventory.push(item)
+    this._person.PotionInventory ++;
+    this.person$.next(this._person)
   }
   consumePotion(index?:number){
-    this._person.PotionInventory.pop()
+    this._person.PotionInventory --;
+    this.person$.next(this._person)
   }
 }

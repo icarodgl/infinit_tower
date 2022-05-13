@@ -10,7 +10,7 @@ export class CharacterModel {
     leftHand: ItemModel;
     rightHand: ItemModel;
     inventory: ItemModel[]  = []
-    PotionInventory: PotionsItem[] = []
+    PotionInventory: number=0
 
     constructor(
         _maxHp?: number,

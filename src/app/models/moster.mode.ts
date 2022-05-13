@@ -1,5 +1,6 @@
 export class MonsterModel {
     nivel:number
+    cor:string
     name: string
     hp: number
     hpMax: number
@@ -11,7 +12,8 @@ export class MonsterModel {
         hpMax: number,
         atack: number,
         defense: number,
-        nivel:number
+        nivel:number,
+        cor:string
     ) {
         this.nivel = nivel
         this.name = name
@@ -19,5 +21,6 @@ export class MonsterModel {
         this.hpMax = hpMax
         this.attack = atack
         this.defense = defense
+        this.cor = cor
     }
 }

@@ -38,18 +38,22 @@ export class BattleService {
     this.monster$.next(this.mService.monster)
 
   }
-  atackMonster(){
-    let playerAttack = Math.floor(this.cService.dealDamage()) 
-    let recived = Math.floor(this.mService.reciveDamage(playerAttack))
+  async atackMonster(){
+    this.menuService.toggleInAttack()
+    let playerAttack = this.cService.dealDamage()
+    let recived = this.mService.reciveDamage(playerAttack)
+    console.log("DAMAGE RECIVED", recived);
+    
     this.lService.personAtack(this.mService.monster.name,playerAttack,recived) 
     this.weaponAnimate()
-    this.delay(1000)
+    await this.delay(1000)
     if(this.mService.monster.hp <= 0){
-      this.monsterAnimate()
+      await this.monsterAnimate()
       this.nextMonster()
     }else{
       this.monsterHitBack()
     }
+    this.menuService.toggleInAttack()
   }
   async monsterAnimate(){
     this.monsterAnim = true
@@ -87,7 +91,7 @@ export class BattleService {
       this.rService.nextFloor()
       this.lService.nextFloor(this.rService.getFloor())
     }  
-    await this.delay(1000)
+    //await this.delay(1000)
     this.mService.newMonster(this.rService.getFloor())  
   }
   changeEncounter(enconter:string):void{
@@ -96,11 +100,10 @@ export class BattleService {
   dropItens(monstro:string){
     let dice = this.rollDice()
     console.log("DROP DICE: ",dice);
-    
    if( dice <= 50){
          let pot = new PotionsItem()
-    this.cService.addItemInventory(pot)
-    this.lService.dropPotion(monstro)
+      this.cService.addItemInventory(pot)
+      this.lService.dropPotion(monstro)
    }
   }
   rollDice(){
