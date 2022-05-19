@@ -10,23 +10,24 @@ import { CharacterService } from 'src/app/services/character.service';
 export class InventoryComponent implements OnInit {
   @Output() changeMenuRest = new EventEmitter();
   inventory: ItemModel[] = []
+  modal:boolean = false
   constructor(public personS: CharacterService) {
 
   }
 
   ngOnInit(): void {
-    for (let i = 0; i < 20; i++) {
-      if (this.personS._person.inventory.length > i) {
-        console.log("put item", this.personS._person.inventory[i]);
-        this.inventory.push(this.personS._person.inventory[i])
-      } else {
-        let item:ItemModel = {
-          name:'',damage:1,defese:1,hands:1
-        }
-        this.inventory.push(item)
-      }
-
-    }
   }
 
+  equipar(item:ItemModel,hand:string){
+    hand=='left'?
+    this.personS.setLeftHand(item):
+    this.personS.setRightHand(item);
+    this.toggleModal()
+  }
+  vender(item:ItemModel){
+    this.personS.vender(item)
+  }
+toggleModal(){
+  this.modal = !this.modal
+}
 }

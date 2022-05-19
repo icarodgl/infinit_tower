@@ -1,20 +1,28 @@
 <div class="inventory">
+    GOLD: {{personS._person.gold}}
     <div class="title">
         <div (click)="changeMenuRest.emit()" class="_button"> Voltar </div>
     </div>
     <div class="itens">
-        <div class="_item" *ngFor="let item of inventory; let i = index">
-            <div class="item-info" *ngIf="item?.name != ''"> 
-                   <div class="nome">{{item.name}}</div>
-                  <div class="status"> Ataque: {{item.damage}}</div> 
-                   <div class="status">Defesa: {{item.defese}}</div> 
-                <div class="buttons">
-                    <div class="button equip">equipar</div>
-                    <div class="button sell">vender</div>
+        <div class="_item" *ngFor="let item of personS._person.inventory; let i = index">
+            <div class="item-info" *ngIf="item?.name != ''">
+                <div class="item-info" *ngIf="!modal">
+                    <div class="nome">{{item.name}}</div>
+                    <div class="status"> Ataque: {{item.damage}}</div>
+                    <div class="status">Defesa: {{item.defese}}</div>
+                    <div class="buttons">
+                        <div class="button equip" (click)="toggleModal()">equipar</div>
+                        <div class="button sell" (click)="vender(item)">vender</div>
+                    </div>
+                </div>
+                <div *ngIf="modal" class="item-info">
+                    <div class="status">Onde equipar?</div>  
+                    <div class="buttons">
+                        <div class="button hand" (click)="equipar(item,'left')">Direita</div>
+                        <div class="button hand" (click)="equipar(item,'right')">Esquerda</div>
+                    </div>
                 </div>
             </div>
-
         </div>
-        <!-- <img src="../../../assets/Inventario.svg" alt="sacola de Inventário"> -->
     </div>
 </div>

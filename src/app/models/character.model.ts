@@ -10,6 +10,7 @@ export class CharacterModel {
     rightHand: ItemModel;
     inventory: ItemModel[]  = []
     PotionInventory: number=0
+    gold:number=0
 
     constructor(
         _maxHp?: number,

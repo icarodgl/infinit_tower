@@ -54,14 +54,15 @@ export class CharacterService {
     } else {
       if (this._person.leftHand.hands == 1) {
         this._person.inventory.push(this._person.leftHand)
+        this._person.inventory = this._person.inventory.filter(i => i.id != item.id)
         this._person.leftHand = item
       } else {
         this._person.inventory.push(this._person.leftHand)
         this._person.leftHand = item
         this._person.rightHand = unarmed
       }
-
     }
+    this.person$.next(this._person)
   }
   setRightHand(item: ItemModel): void {
     if (item.hands == 2) {
@@ -69,13 +70,16 @@ export class CharacterService {
     } else {
       if (this._person.rightHand.hands == 1) {
         this._person.inventory.push(this._person.rightHand)
+        this._person.inventory = this._person.inventory.filter(i => i.id != item.id)
         this._person.rightHand = item
       } else {
         this._person.inventory.push(this._person.rightHand)
+        this._person.inventory = this._person.inventory.filter(i => i.id != item.id)
         this._person.rightHand = item
         this._person.leftHand = unarmed
       }
     }
+    this.person$.next(this._person)
   }
   private _set2HandItem(item: ItemModel): void {
     if (this._person.leftHand.hands == 1) {
@@ -108,6 +112,11 @@ export class CharacterService {
 
   consumePotion(index?:number){
     this._person.PotionInventory --;
+    this.person$.next(this._person)
+  }
+  vender(item:ItemModel){
+    this._person.inventory = this._person.inventory.filter(i => i.id != item.id)
+    this._person.gold = this._person.gold + item.damage + item.defese + item.hands
     this.person$.next(this._person)
   }
 }

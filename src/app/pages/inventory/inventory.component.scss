@@ -54,6 +54,7 @@
     align-items: center;
     flex-wrap:wrap;
     width: calc(100vw /3);
+    min-height: 300px;
     color: wheat;
     img{
         z-index: 70;
@@ -66,7 +67,14 @@
         }
     }
 }
-
+.hand{
+    border-style: solid;
+    border-color: black;
+    border-radius: 2px;
+    border-width: 1px;
+    margin-left: 1px;
+    color: rgb(214, 139, 0);
+}
 .inventory{
     display: flex;
     align-items: center;
