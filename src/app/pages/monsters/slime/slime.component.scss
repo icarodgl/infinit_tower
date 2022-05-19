@@ -52,3 +52,13 @@
         right: -10vw;
     }
 }
+
+.atacar{
+    animation-name: attack;
+    animation-duration: 1s;
+    // animation-fill-mode: forwards;
+}
+@keyframes attack {
+    0% {width: 180px;;}
+    100% {width: 260px;;}
+  }

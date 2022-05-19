@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { CharacterModel } from '../models/character.model';
-import { ItemModel, unarmed } from '../models/item.mode.';
+import { ItemModel, unarmed } from '../models/item.mode';
 import { PotionsItem } from '../models/potions.mode';
 
 @Injectable({
@@ -97,10 +97,15 @@ export class CharacterService {
     }
   }
 
-  addItemInventory(item:PotionsItem){
+  addPotionInventory(item:PotionsItem){
     this._person.PotionInventory ++;
     this.person$.next(this._person)
   }
+  addItemInventory(item:ItemModel){
+    this._person.inventory.push(item)
+    this.person$.next(this._person)
+  }
+
   consumePotion(index?:number){
     this._person.PotionInventory --;
     this.person$.next(this._person)

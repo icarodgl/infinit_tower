@@ -8,6 +8,7 @@ import { MonstersService } from './monsters.service';
 import { RankingService } from './ranking.service';
 import { MenuService } from './menu.service';
 import { menus } from './menus';
+import { DropService } from './drops.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,14 +19,15 @@ export class BattleService {
   encounter$:Subject<string> = new Subject<string>();
   monster$:Subject<MonsterModel> = new Subject<MonsterModel>();
   weaponAnim = false
-  monsterAnim = false
+  monsterAnim =''
   encontersFloor=3
   constructor(
       public mService:MonstersService,
       public cService:CharacterService,
       public lService:LogsService,
       public rService:RankingService,
-      public menuService:MenuService
+      public menuService:MenuService,
+      public dropService:DropService
       ) {
     this.monster$.next(this.mService.monster)
     this.menuService.menu$.subscribe(m=>this.menuChange(m))
@@ -48,17 +50,22 @@ export class BattleService {
     this.weaponAnimate()
     await this.delay(1000)
     if(this.mService.monster.hp <= 0){
-      await this.monsterAnimate()
+      await this.monsterAnimateDie()
       this.nextMonster()
     }else{
       this.monsterHitBack()
     }
     this.menuService.toggleInAttack()
   }
-  async monsterAnimate(){
-    this.monsterAnim = true
+  async monsterAnimateDie(){
+    this.monsterAnim = 'encolher'
    await this.delay(1000)
-    this.monsterAnim = false
+    this.monsterAnim = ''
+  }
+  async monsterAnimateAttak(){
+    this.monsterAnim = 'atacar'
+   await this.delay(1000)
+    this.monsterAnim = ''
   }
   async weaponAnimate(){
     this.weaponAnim = true
@@ -76,6 +83,7 @@ export class BattleService {
     let monsterAttack = Math.floor(this.mService.dealDamage())
     let recived = Math.floor(this.cService.recieveDamage(monsterAttack))
     this.lService.monsterAtack(this.mService.monster.name,monsterAttack,recived)
+    this.monsterAnimateAttak()
     if(this.cService._person.hp <= 0){
       this.isGameOver = true
       this.lService.gameOver()
@@ -83,13 +91,11 @@ export class BattleService {
   }
   async nextMonster(){
     this.monsters++
-    this.lService.morte(this.mService.monster.name)
-    this.dropItens(this.mService.monster.name)
+    this.dropService.drop(this.rService.getFloor())
     this.rService.nextRound()
     if(this.monsters == this.encontersFloor){
       this.monsters = 0
       this.rService.nextFloor()
-      this.lService.nextFloor(this.rService.getFloor())
     }  
     //await this.delay(1000)
     this.mService.newMonster(this.rService.getFloor())  
@@ -97,15 +103,7 @@ export class BattleService {
   changeEncounter(enconter:string):void{
     this.encounter$.next(enconter)
   }
-  dropItens(monstro:string){
-    let dice = this.rollDice()
-    console.log("DROP DICE: ",dice);
-   if( dice <= 50){
-         let pot = new PotionsItem()
-      this.cService.addItemInventory(pot)
-      this.lService.dropPotion(monstro)
-   }
-  }
+
   rollDice(){
     return Math.floor(Math.random()*100)
   }

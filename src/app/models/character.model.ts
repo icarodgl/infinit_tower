@@ -1,5 +1,4 @@
-import { ItemModel, unarmed } from "./item.mode."
-import { PotionsItem } from "./potions.mode";
+import { ItemModel, unarmed } from "./item.mode"
 
 
 export class CharacterModel {

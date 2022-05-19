@@ -17,7 +17,7 @@ export class MenuTattleComponent implements OnInit {
 
   personHP: Array<boolean> = [];
   monsterHP: Array<boolean> = [];
-
+  itens:number=0
   constructor(
     public menuService:MenuService,
     public logService: LogsService,
@@ -29,7 +29,8 @@ export class MenuTattleComponent implements OnInit {
       this.changeHpMonster(hp)
 
     })
-    this.charService.person$.subscribe(({ maxHp, hp }) => {
+    this.charService.person$.subscribe(({ maxHp, hp, inventory }) => {
+      this.itens = inventory.length
       this.listarHPMaxPerson(maxHp)
       this.changeHpPerson(hp)
     })

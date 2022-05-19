@@ -12,13 +12,21 @@
     border: 6px double #a0a0a0;
 }
 .click{
+    z-index: 80;
     display: flex;
     position: absolute;
     background-color: #000000d9;
     color: #acacac;
-    left: 20vw;
+    left: 5vw;
     top: 90vh;
 }
+
 .image{
+
+    position: absolute;
     height: 100vh;
+    @media (max-width:800px) {
+        position: absolute;
+        left: -25vw;
+    }
 }
