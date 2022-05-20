@@ -9,19 +9,14 @@ import { PotionsItem } from '../models/potions.mode';
 })
 export class CharacterService {
 
-  _person = new CharacterModel(
-    20,
-    20,
-    0,
-    1
-  )
+  _person = new CharacterModel({})
   person$:Subject<CharacterModel> = new Subject<CharacterModel>()
 
   constructor() { 
     this.person$.subscribe(p=>this._person=p)
   }
   newPerson(){
-    let person = new CharacterModel()
+    let person = new CharacterModel({})
     this.person$.next(person)
   }
   recieveDamage(damage: number): number {
@@ -40,7 +35,7 @@ export class CharacterService {
      if (heal+this._person.hp >= this._person.maxHp){
        this._person.hp = this._person.maxHp * 1
 
-     }else if(this._person.hp != this._person.maxHp){
+     }else if(this._person.hp !== this._person.maxHp){
       this._person.hp =this._person.hp+heal
      }else{
        return false
@@ -49,52 +44,64 @@ export class CharacterService {
     return true
   }
   setLeftHand(item: ItemModel): void {
-    if (item.hands == 2) {
+    this._person.inventory = this._person.inventory.filter(i => i.id !== item.id)
+    if (item.hands === 2) {
       this._set2HandItem(item)
     } else {
-      if (this._person.leftHand.hands == 1) {
-        this._person.inventory.push(this._person.leftHand)
-        this._person.inventory = this._person.inventory.filter(i => i.id != item.id)
+      if (this._person.leftHand.hands === 1) {
+        if (this._person.leftHand !== unarmed)
+          this._person.inventory.push(this._person.leftHand)
         this._person.leftHand = item
+        this.person$.next(this._person)
       } else {
-        this._person.inventory.push(this._person.leftHand)
+        if (this._person.leftHand !== unarmed)
+          this._person.inventory.push(this._person.leftHand)
         this._person.leftHand = item
         this._person.rightHand = unarmed
+        this.person$.next(this._person)
       }
     }
-    this.person$.next(this._person)
+    
   }
   setRightHand(item: ItemModel): void {
-    if (item.hands == 2) {
+    this._person.inventory = this._person.inventory.filter(i => i.id !== item.id)
+    if (item.hands === 2) {
       this._set2HandItem(item)
     } else {
-      if (this._person.rightHand.hands == 1) {
-        this._person.inventory.push(this._person.rightHand)
-        this._person.inventory = this._person.inventory.filter(i => i.id != item.id)
+      if (this._person.rightHand.hands === 1) {
+        if (this._person.rightHand !== unarmed)
+          this._person.inventory.push(this._person.rightHand)
         this._person.rightHand = item
+        this.person$.next(this._person)
       } else {
-        this._person.inventory.push(this._person.rightHand)
-        this._person.inventory = this._person.inventory.filter(i => i.id != item.id)
+        if (this._person.rightHand !== unarmed)
+          this._person.inventory.push(this._person.rightHand)
         this._person.rightHand = item
         this._person.leftHand = unarmed
+        this.person$.next(this._person)
       }
     }
-    this.person$.next(this._person)
+    
   }
   private _set2HandItem(item: ItemModel): void {
-    if (this._person.leftHand.hands == 1) {
-      this._person.inventory.push(this._person.leftHand)
-      this._person.inventory.push(this._person.rightHand)
+    if (this._person.leftHand.hands === 1) {
+      if (this._person.leftHand !== unarmed)
+        this._person.inventory.push(this._person.leftHand)
+      if (this._person.rightHand !== unarmed)
+        this._person.inventory.push(this._person.rightHand)
       this._person.leftHand = item
       this._person.rightHand = item
+      this.person$.next(this._person)
     } else {
-      this._person.inventory.push(this._person.leftHand)
+      if (this._person.leftHand !== unarmed)
+        this._person.inventory.push(this._person.leftHand)
       this._person.leftHand = item
       this._person.rightHand = item
+      this.person$.next(this._person)
     }
   }
   dealDamage(): number {
-    if (this._person.leftHand.hands == 2) {
+    if (this._person.leftHand.hands === 2) {
       return this._person.attack + this._person.leftHand.damage
     } else {
       return this._person.attack + this._person.leftHand.damage + this._person.rightHand.damage

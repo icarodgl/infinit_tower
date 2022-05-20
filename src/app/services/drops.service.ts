@@ -14,30 +14,27 @@ dropPotion():PotionsItem{
     return pot
 }
 dropAttackItem(nivel:number):ItemModel{
-
-    let item: ItemModel = new ItemModel ({
+    return new ItemModel ({
         name:`Espada +${nivel}` ,
-        damage:1+nivel,
+        damage:2*nivel,
         defese:1,
         hands:1
     })
-    return item
 }
 dropDefenseItem(nivel:number):ItemModel{
-    let item: ItemModel = new ItemModel({
+    return new ItemModel({
         name:`Escudo +${nivel}`,
-        damage:1,
-        defese:1+nivel,
+        damage:1 ,
+        defese:2*nivel,
         hands:1
     })
-    return item
 }
 dropTwoHand(nivel:number):ItemModel{
     return new ItemModel({
-        name:`Espadãozão +${nivel}`,
-        damage:1+nivel,
-        defese:1+nivel,
-        hands:1
+        name:`Espadão +${nivel}`,
+        damage:2*nivel,
+        defese:(2*Math.round(nivel/2)),
+        hands:2
     }) 
 }
 dropItens(nivel:number):ItemModel{

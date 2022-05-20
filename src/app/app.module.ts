@@ -16,6 +16,7 @@ import { ShopComponent } from './pages/shop/shop.component';
 import { CampfireComponent } from './pages/campfire/campfire.component';
 import { OpeningComponent } from './pages/opening/opening.component';
 import { PotionComponent } from './pages/itens/potion/potion.component';
+import { CharacterComponent } from './pages/character/character.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PotionComponent } from './pages/itens/potion/potion.component';
          ShopComponent,
          CampfireComponent,
          OpeningComponent,
-         PotionComponent
+         PotionComponent,
+         CharacterComponent
   ],
   imports: [
     BrowserModule,
