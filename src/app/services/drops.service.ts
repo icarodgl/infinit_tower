@@ -14,28 +14,31 @@ dropPotion():PotionsItem{
     return pot
 }
 dropAttackItem(nivel:number):ItemModel{
+    let calc:number = 6+nivel
     return new ItemModel ({
         name:`Espada +${nivel}` ,
-        damage:2*nivel,
-        defese:1,
+        damage:calc,
+        defese:Math.round(calc/2)-1,
         hands:1
     })
 }
 dropDefenseItem(nivel:number):ItemModel{
+    let calc:number = 6+nivel
     return new ItemModel({
         name:`Escudo +${nivel}`,
-        damage:1 ,
-        defese:2*nivel,
+        damage:Math.round(calc/2)-1 ,
+        defese:calc,
         hands:1
     })
 }
 dropTwoHand(nivel:number):ItemModel{
+    let calc:number = 10+(2*nivel)
     return new ItemModel({
         name:`Espadão +${nivel}`,
-        damage:2*nivel,
-        defese:(2*Math.round(nivel/2)),
+        damage:calc,
+        defese:calc-6,
         hands:2
-    }) 
+    })
 }
 dropItens(nivel:number):ItemModel{
     let key = Math.floor(Math.random()*3)
@@ -51,13 +54,13 @@ dropItens(nivel:number):ItemModel{
     } 
 }
 drop(nivel:number){
-    let dropI = 100
-    let dropP = 100
+    let dropItem = 20
+    let dropPotion = 35
     let dice = Math.floor(Math.random()*100)
-    if(dice <= dropI ){
+    if(dice <= dropItem ){
         this.personS.addItemInventory( this.dropItens(nivel))
     }
-    if(dice <= dropP){
+    if(dice <= dropPotion){
         this.personS.addPotionInventory(this.dropPotion())
     }
 }

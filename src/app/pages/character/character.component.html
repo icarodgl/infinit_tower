@@ -16,4 +16,8 @@
         </div>
     </div>
     <div class="line"><div class="item"><span class="info">nada</span> </div></div>
+    <span class="info"  *ngIf="personS._person.leftHand.hands ==1" >Ataque:{{personS._person.leftHand.damage + personS._person.rightHand.damage}}</span> 
+    <span class="info" *ngIf="personS._person.leftHand.hands ==2">Ataque:{{personS._person.leftHand.damage}}</span>
+    <span class="info" *ngIf="personS._person.leftHand.hands ==1" >Defesa:{{personS._person.leftHand.defese + personS._person.rightHand.defese}}</span> 
+    <span class="info" *ngIf="personS._person.leftHand.hands ==2">Defesa:{{personS._person.leftHand.defese}}</span>
 </div>
