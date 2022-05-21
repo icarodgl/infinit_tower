@@ -22,7 +22,6 @@ export class PotionComponent implements OnInit {
     let potIsUsed: boolean = this.charService.recieveHeal(10)
     if (potIsUsed) {
       this.charService.consumePotion()
-      this.logS.personHeal()
     }
   }
 

@@ -9,13 +9,11 @@ import { RankingService } from '../../services/ranking.service';
   styleUrls: ['./points.component.scss']
 })
 export class PointsComponent implements OnInit {
-  floor = 0
-  round = 0
+
   constructor(public rService:RankingService) { }
 
   ngOnInit(): void {
-    this.rService.floor$.subscribe(f=>this.floor=f)
-    this.rService.round$.subscribe(r=>this.round=r)
+    
   }
 
 }

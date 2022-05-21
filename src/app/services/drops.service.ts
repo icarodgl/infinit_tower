@@ -56,6 +56,10 @@ dropItens(nivel:number):ItemModel{
 drop(nivel:number){
     let dropItem = 20
     let dropPotion = 35
+    if (nivel<=1){
+        dropItem = 100
+        dropPotion = 100
+    }
     let dice = Math.floor(Math.random()*100)
     if(dice <= dropItem ){
         this.personS.addItemInventory( this.dropItens(nivel))

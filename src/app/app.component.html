@@ -9,6 +9,11 @@
       <button class="_button">
         <h3 (click)="continue()">continuar</h3>
       </button>
+      <ul>
+        <li *ngFor="let item of rankingS.ranking">
+         Data: {{item.data}} Andar: {{item.floor}} Rodadas {{item.round}}
+        </li>
+      </ul>
     </div>
   </div>
   <a class="opening" *ngIf="menuS.opening">

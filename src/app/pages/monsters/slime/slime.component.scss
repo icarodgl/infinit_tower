@@ -12,10 +12,7 @@
     animation-duration: 2s;
     animation-fill-mode: forwards;
 }
-@keyframes encolher {
-    from {height: 200px;;}
-    to {height: 10px;}
-  }
+
 
 .hidden{
     display: none;
@@ -55,10 +52,15 @@
 
 .atacar{
     animation-name: attack;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     // animation-fill-mode: forwards;
 }
 @keyframes attack {
     0% {width: 180px;;}
     100% {width: 260px;;}
-  }
+}
+
+@keyframes encolher {
+from {height: 200px;;}
+to {height: 10px;}
+}

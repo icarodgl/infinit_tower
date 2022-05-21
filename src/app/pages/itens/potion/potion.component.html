@@ -1,5 +1,5 @@
-<div class="count">{{potions}}</div>
-<div class="_potions" *ngIf="potions>0" (click)="use()">
+<div class="count">{{charService._person.PotionInventory}}</div>
+<div class="_potions" *ngIf="charService._person.PotionInventory>0" (click)="use()">
 	<svg
 	class="potion"
 	viewBox="0 0 52.916665 52.916668"
@@ -83,7 +83,7 @@
  
 </div>
 
-<div class="_potions"  *ngIf="potions==0">
+<div class="_potions"  *ngIf="charService._person.PotionInventory==0">
 	<svg
 	class="potion"
 	viewBox="0 0 52.916665 52.916668"

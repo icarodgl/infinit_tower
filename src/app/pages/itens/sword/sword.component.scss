@@ -7,12 +7,11 @@
 
 .balancar{
     animation-name: attack;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     // animation-fill-mode: forwards;
 }
 @keyframes attack {
     0% {transform: rotate(0deg);}
-    30% {transform: rotate(20deg);}
-    60% {transform: rotate(40deg);}
+    50% {transform: rotate(40deg);}
     100% {transform: rotate(0deg);}
   }

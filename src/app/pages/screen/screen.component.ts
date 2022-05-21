@@ -10,8 +10,10 @@ import { menus } from 'src/app/services/menus';
 export class ScreenComponent implements OnInit {
   menus=menus
   constructor(public menuService:MenuService) { 
+
   }
 
   ngOnInit(): void {
+
   }
 }

@@ -24,7 +24,6 @@ export class BattleService {
   constructor(
       public mService:MonstersService,
       public cService:CharacterService,
-      public lService:LogsService,
       public rService:RankingService,
       public menuService:MenuService,
       public dropService:DropService
@@ -35,18 +34,14 @@ export class BattleService {
   gameReset(){
     this.isGameOver = false
     this.cService.newPerson()
-    this.mService.newMonster(0)
+    this.mService.newMonster(1)
     this.rService.reset()
-    this.monster$.next(this.mService.monster)
-
   }
   async atackMonster(){
     this.menuService.toggleInAttack()
     let playerAttack = this.cService.dealDamage()
     let recived = this.mService.reciveDamage(playerAttack)
     console.log("DAMAGE RECIVED", recived);
-    
-    this.lService.personAtack(this.mService.monster.name,playerAttack,recived) 
     this.weaponAnimate()
     await this.delay(1000)
     if(this.mService.monster.hp <= 0){
@@ -82,11 +77,9 @@ export class BattleService {
   monsterHitBack(){
     let monsterAttack = Math.floor(this.mService.dealDamage())
     let recived = Math.floor(this.cService.recieveDamage(monsterAttack))
-    this.lService.monsterAtack(this.mService.monster.name,monsterAttack,recived)
     this.monsterAnimateAttak()
     if(this.cService._person.hp <= 0){
       this.isGameOver = true
-      this.lService.gameOver()
     }
   }
   async nextMonster(){

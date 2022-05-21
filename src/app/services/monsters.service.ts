@@ -9,11 +9,11 @@ import { monsterVariant } from './monster.variant';
 export class MonstersService {
   monster: MonsterModel = {
     nivel: 1,
-    name: "slime",
+    name: "slime Verdejante",
     hp: 5,
     hpMax: 5,
-    attack: 3,
-    defense: 1,
+    attack: 2,
+    defense: 0,
     cor: 'rgba(20, 145, 13, 0.478)'
   };
   monster$: Subject<MonsterModel> = new Subject()
@@ -23,18 +23,16 @@ export class MonstersService {
 
   newMonster(nivel: number): void {
     let dice: number = Math.floor(Math.random() * (monsterVariant.length - 1))
-
     this.monster$.next({
       cor: monsterVariant[dice].cor,
       nivel: nivel,
       name: `Slime ${monsterVariant[dice].sufixo}`,
       hp: 5 + nivel,
       hpMax: 5 + nivel,
-      attack: 3 + nivel,
+      attack: 2 + nivel,
       defense: 1 + nivel,
     }
     )
-
   }
   reciveDamage(damage: number): number {
     let dmg = (damage - this.monster.defense)
